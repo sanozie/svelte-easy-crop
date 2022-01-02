@@ -268,8 +268,10 @@
       class:round={cropShape === 'round'}
       class:grid={showGrid}
       style="width: {cropperSize.width}px; height: {cropperSize.height}px;"
-      data-testid="cropper"
-    />
+      data-testid="cropper">
+      <div class='cropperEnv'></div>
+      <slot name='underCropper'></slot>
+    </div>
   {/if}
 </div>
 
@@ -284,6 +286,13 @@
     user-select: none;
     touch-action: none;
     cursor: move;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  button {
+      user-select: all;
+      touch-action: auto;
   }
 
   .image {
@@ -307,7 +316,12 @@
     box-sizing: border-box;
     color: rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.5);
-    overflow: hidden;
+  }
+
+  .cropperEnv {
+      position: relative;
+      height: 100%;
+      width: 100%;
   }
 
   .grid:before {
