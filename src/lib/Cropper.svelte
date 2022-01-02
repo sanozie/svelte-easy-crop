@@ -269,7 +269,7 @@
       class:grid={showGrid}
       style="width: {cropperSize.width}px; height: {cropperSize.height}px;"
       data-testid="cropper">
-      <div class='cropperEnv'></div>
+      <div class='cropperEnv' style="width: {cropperSize.width}px; height: {cropperSize.height}px;"></div>
       <slot name='underCropper'></slot>
     </div>
   {/if}
